@@ -22,14 +22,12 @@ class Player {
    * @return boolean Returns false on a db error, otherwise returns true
    */ 
   public function __construct($id = 0) {
-  
     $db = DB::getDB();
     if(!$db) {
       return false;
     }
 
     if(is_int($id) && $id) {
-
       $dbq = $db->query("SELECT * FROM player WHERE player_id = " . (int)$id);
       if($result = $dbq->fetch_assoc()) {
 
@@ -41,21 +39,17 @@ class Player {
 
         $result->free();
       }
-
     }
     return true;
-
   }
 
   /**
-   * calculate the hash by running password_hash on the player's salt value
+   * calculate the hash by running md5 on the player's salt value
    *
    * @return string
    */
   public function calculateHash() {
-
-    return password_hash($this->salt_value, PASSWORD_DEFAULT);
-  
+    return md5($this->salt_value);
   }
 
   /**

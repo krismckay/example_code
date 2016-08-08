@@ -49,7 +49,7 @@ class SpinEndpoint {
   private function validateInput($params) {
 
     $expectedValues = [
-      'hash'  =>  '/^[0-9a-z]{32}$/',
+      'hash'  =>  '/^[0-9a-f]{32}$/',
       'coins_won'  =>  '/^\d+$/',
       'coins_bet'  =>  '/^\d+$/',
       'player_id'  =>  '/^\d+$/',
