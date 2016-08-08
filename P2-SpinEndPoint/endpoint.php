@@ -1,16 +1,21 @@
 <?php
+/**
+ * This is the endpoint file for spin results to be posted to.
+ */
 
-define('BASE_PATH', realpath(dirname(__FILE__)));
-use spin\SpinEndpoint;
+// define the basepath for use in the autoloader
+define('BASEPATH', realpath(dirname(__FILE__)));
 
-$endpoint = new SpinEndpoint();
+// setup a new endpoint and run it
+$endpoint = new spin\SpinEndpoint();
 $endpoint->run();
 
+/**
+ * Provide the autoloading of namespaced class files
+ */
 function __autoload($class)
 {
   if(!class_exists($class) && strpos($class, '\\') !== false) {
-    $filename = BASE_PATH . '/src/' . str_replace('\\', '/', $class) . '.php';
-    require_once($filename);
+    require_once(BASEPATH . '/src/' . str_replace('\\', '/', $class) . '.php');
   }
-
 }
