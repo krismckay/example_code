@@ -32,7 +32,8 @@ class DB {
           $config['db_host'],
           $config['db_user'],
           $config['db_pass'],
-          $config['db_name']
+          $config['db_name'],
+          $config['db_port']
         );
         $this->connect_errno = mysqli->connect_errno;
       } else {
