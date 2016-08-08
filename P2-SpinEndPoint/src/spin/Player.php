@@ -22,13 +22,13 @@ class Player {
    * @return boolean Returns false on a db error, otherwise returns true
    */ 
   public function __construct($id = 0) {
-    $db = DB::getDB();
-    if(!$db) {
+    $this->db = DB::getDB();
+    if(!$this->db) {
       return false;
     }
 
     if(is_int($id) && $id) {
-      $dbq = $db->query("SELECT * FROM player WHERE player_id = " . (int)$id);
+      $dbq = $this->db->query("SELECT * FROM player WHERE player_id = " . (int)$id);
       if($result = $dbq->fetch_assoc()) {
 
         $this->player_id      = (int)$result['player_id'];
@@ -37,7 +37,7 @@ class Player {
         $this->lifetime_spins = (int)$result['lifetime_spins'];
         $this->salt_value     = $result['salt_value'];
 
-        $result->free();
+        $dbq->free();
       }
     }
     return true;
