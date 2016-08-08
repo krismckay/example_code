@@ -6,8 +6,6 @@
  */
 namespace spin;
 
-use spin\Player;
-
 class SpinEndpoint {
 
   /**
@@ -20,7 +18,7 @@ class SpinEndpoint {
       $this->sendError("Posted data does not validate.");
     }
 
-    $player = spin\Player::findByIdAndHash($incoming_params['player_id'], $incoming_params['hash']);
+    $player = Player::findByIdAndHash($incoming_params['player_id'], $incoming_params['hash']);
     if(!$player) {
       $this->sendError("Unknown player");
     }

@@ -6,8 +6,6 @@
  */
 namespace spin;
 
-use spin\DB;
-
 class Player {
 
   var $db;
@@ -23,7 +21,7 @@ class Player {
    *
    * @return boolean Returns false on a db error, otherwise returns true
    */ 
-  function __construct($id = 0) {
+  public function __construct($id = 0) {
   
     $db = DB::getDB();
     if(!$db) {
@@ -56,7 +54,7 @@ class Player {
    */
   public function calculateHash() {
 
-    return password_hash($this->salt_value);
+    return password_hash($this->salt_value, PASSWORD_DEFAULT);
   
   }
 
@@ -70,7 +68,7 @@ class Player {
   static public function findByIdAndHash($id, $hash) {
 
     $player = new Player($id);
-    if($player->id && $hash === $player->calculateHash()) {
+    if($player->player_id && $hash === $player->calculateHash()) {
       return $player;
     } else {
       return false;
@@ -97,8 +95,8 @@ class Player {
    */
   public function updateFromSpin() {
 
-    $statement = "UPDATE player SET credits = " . $this->credits . ", lifetime_spins=lifetime_spins+1 WHERE player_id = " . $this->id;
-    if($db->query($statment)) {
+    $statement = "UPDATE player SET credits = " . $this->credits . ", lifetime_spins=lifetime_spins+1 WHERE player_id = " . $this->player_id;
+    if($this->db->query($statement)) {
       $this->lifetime_spins++;
       return true;
     }

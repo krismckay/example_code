@@ -14,7 +14,7 @@ There are 2 versions I've included here:
 I've used an example data set of 500 entries to test.
 
 ## Output
-The output for each of the versions is the same however the script timer would show a a different run speed:
+The output for each of the versions is the same, showing the list of the busiest years and the run speed. With the provided example data a single year is listed, but for other sample sets it may list multiple years. I may update this to show the counts as well (which are available to be output).
 
     started...
     Array

@@ -17,7 +17,7 @@ class DB {
    *
    * @return mixed Retuns either a mysqli connection handle or false on failure
    */
-  public __construct() {
+  public function __construct() {
 
     if($this::$db != null) {
 
@@ -28,14 +28,14 @@ class DB {
       if($config = parse_ini_file(dirname(__FILE__)."/config.ini"))
       {
 
-        $this::$db = new mysqli(
+        $this::$db = new \mysqli(
           $config['db_host'],
           $config['db_user'],
           $config['db_pass'],
           $config['db_name'],
           $config['db_port']
         );
-        $this->connect_errno = mysqli->connect_errno;
+        $this->connect_errno = $this::$db->connect_errno;
       } else {
         $this->connect_errno = 2002;
       }
