@@ -27,4 +27,4 @@ The output for each of the versions is the same, showing the list of the busiest
 ## Conclusions
 Version 1 uses much more memory on the example data set and runs slower, however this method should be more efficient if there were a smaller data set spread over a much longer period of time.
 
-Version 2 comparably runs very fast and can handle a much larger data set within the provided parameters, however would be very inefficient given a small data set spread over a longer period of time.
+Version 2 comparably runs very fast and can handle a much larger data set within the provided parameters, however would be inefficient given a small data set spread over a much longer period of time.
