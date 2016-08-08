@@ -16,13 +16,13 @@ I've used an example data set of 500 entries to test.
 ## Output
 The output for each of the versions is the same however the script timer would show a a different run speed:
 
-  started...
-  Array
-  (
-    [0] => 1949
-  )
+    started...
+    Array
+    (
+      [0] => 1949
+    )
 
-  Completed in 0.0085690021514893 seconds
+    Completed in 0.0085690021514893 seconds
 
 ## Conclusions
 Version 1 uses much more memory on the example data set and runs slower, however this method should be more efficient if there were a smaller data set spread over a much longer period of time.
