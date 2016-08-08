@@ -14,6 +14,12 @@ class SpinEndpoint {
   public function run() {
 
     $incoming_params = $_POST;
+    $incoming_params = [
+        'player_id' => 1,
+        'hash' => '0aa1ea9a5a04b78d4581dd6d17742627',
+        'coins_won' => 3,
+        'coins_bet' => 1
+      ];
     if(!$this->validateInput($incoming_params)) {
       $this->sendError("Posted data does not validate.");
     }

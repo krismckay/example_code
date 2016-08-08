@@ -27,7 +27,6 @@ class DB {
 
       if($config = parse_ini_file(dirname(__FILE__)."/config.ini"))
       {
-
         $this::$db = new \mysqli(
           $config['db_host'],
           $config['db_user'],
